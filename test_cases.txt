@@ -1,0 +1,87 @@
+7 test cases
+each test case scaled down to 1 mark
+
+total score out of 7 scaled to out of 10
+
+
+
+test_ps_init
+create_ps(10 * PAGE_SIZE, 1 * PAGE_SIZE, 2 * PAGE_SIZE, 1 * MB, data)
+
++1.0 read_mem, addr 0
++1.0 read_mem, 10 * PAGE_SIZE - 1
++1.0 read_mem 10 * PAGE_SIZE
++1.0 read_mem 10 * PAGE_SIZE + 1
+
+max : 4.0 / 4.0 -> 1.0 / 1.0
+
+
+-------------------------
+
+test_page_table
+
+create_ps(10 * PAGE_SIZE, 2 * PAGE_SIZE,
+     1 * PAGE_SIZE, 5 * PAGE_SIZE, data)
+
++1.0 R bit
++1.0 W bit
++1.0 E bit
++1.0 P bit
++1.0 unique frame numbers
+
+
+---------------------------
+
+test_read_write
+
++2.0  read write to stack
++2.0  read write to rw data
++1.0  no error 
+
+----------------------------
+
+test_alloc_dealloc_pages
+
++2.0: new + unique frames allocated 
++1.0: memory protection correct
++1.0: read/write to allocated
++2.0: After de-allocation, present bit set 0
++1.0: no error no far
++1.0: error on double de-alloc. on same location
+
+
+-----------------------------
+test_fork
+
++ 1.0 : fork sees old data written by parent
++ 1.0 : child does not see new data written by parent
++ 1.0 : parent does not see new data written by child
++ 1.0 : correct page tables for parent and child
+
+-------------------------------
+
+test_memory_protection
+
++ 1.0 : write not allowed to read only data
++ 1.0 : read not allowed on not present virt. addr. 
+
+-------------------------------
+
+test_usage_limit
+
+Fill 64 process with 2 MB virt addr
++2.0: correct page tables
+exit one process
+create on more process of 2 MB
++1.0: correct page tables
+exit on process
+create on more process of 2 MB
++1.0 correct page tables: 
+
+
+
+
+
+
+
+
