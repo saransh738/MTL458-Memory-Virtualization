@@ -11,6 +11,6 @@ You should implement the following functions:
 * fork ps(int pid): This function should create a new process that has identical memory with the process of a given pid.
 * allocate pages(int pid, int vmem addr, int num pages, int flags): This function should allocate num pages starting at vnem addr for a process with a given pid. Set the protection bits of each page according to the flags.
 * If any of the to-be-allocated pages were already allocated then this should kill the process. 
-* deallocate pages(int pid, int vnem addr, int num pages ): This function should deallocate num pages starting at vnem addr for a process with a given pid. If any of the to be de-allocated pages were not allocated then this should kill the process. See comments in the code for more details.
+* deallocate pages(int pid, int vnem addr, int num pages ): This function should deallocate num pages starting at vnem addr for a process with a given pid. If any of the to be de-allocated pages were not allocated then this should kill the process.
 * read mem(int pid, int vmem addr): Read 1 byte at the given virtual address for the process with the given pid, and return it. In case of illegal access, kill the process.
 * write mem(int pid, int vmem addr, unsigned char byte): Write the byte at the given virtual address for the process with the given pid. In case of illegal access, kill the process.
